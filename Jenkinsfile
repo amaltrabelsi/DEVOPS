@@ -5,7 +5,8 @@ pipeline {
 
         stage('Git Checkout') {
             steps {
-                git branch :'main' , url: 'https://github.com/amaltrabelsi/DEVOPS.git'
+                  dir('back'){
+                git branch :'main' , url: 'https://github.com/amaltrabelsi/DEVOPS.git'}
              }
         }
 
@@ -17,7 +18,8 @@ pipeline {
           //}
           stage('MVN CLEAN') {
             steps {
-               sh 'mvn clean'
+                  dir('back'){
+               sh 'mvn clean'}
             }
         }
           stage('Test') {
@@ -49,8 +51,9 @@ pipeline {
 
         stage('Junit') {
             steps {
+              dir('back'){
                 // Étape de tests unitaires du backend
-               sh 'mvn test'
+               sh 'mvn test'}
             }
         }*/
 
