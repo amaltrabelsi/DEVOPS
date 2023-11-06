@@ -97,6 +97,7 @@
          <version>2.22.2</version>
                  <configuration>
              <skipTests>true</skipTests> 
+               <include>**/*Test.java</include>
          </configuration>
       </plugin>
       <plugin>
