@@ -16,12 +16,20 @@ pipeline {
                //  sh 'mvn clean package'
               //}
           //}
-          stage('MVN CLEAN') {
-            steps {
-                  dir('back'){
-               sh 'mvn clean'}
-            }
+         stage('Backend Compilation and Package') {
+    steps {
+        dir('back') {
+            sh 'mvn clean compile package'
         }
+    }
+}
+
+Cela ajoutera une étape pour la compilation (mvn clean compile) et l'emballage (mvn package) de votre projet Maven situé dans le répertoire "back".
+
+Assurez-vous de personnaliser davantage le Jenkinsfile en fonction de vos besoins spécifiques. Ensuite, enregistrez le Jenkinsfile dans votre référentiel Git et configurez votre pipeline Jenkins pour qu'il l'utilise.
+
+N'oubliez pas de configurer les variables d'environnement, les plugins et les outils requis pour que votre pipeline fonctionne correctement, en fonction de votre infrastructure Jenkins et de vos besoins de construction.
+
           stage('Test') {
             steps {
                 dir('back'){
