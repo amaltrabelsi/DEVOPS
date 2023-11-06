@@ -34,7 +34,7 @@ public class InvoiceController {
     public List<Invoice> getInvoicesBySupplier(@PathVariable Long supplierId) {
         return invoiceService.getInvoicesBySupplier(supplierId);
     }
-
+//amal
     @PutMapping(value = "/invoice/operator/{idOperator}/{idInvoice}")
     public void assignOperatorToInvoice(@PathVariable Long idOperator,@PathVariable Long idInvoice) {
         invoiceService.assignOperatorToInvoice(idOperator, idInvoice);
