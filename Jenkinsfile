@@ -22,12 +22,15 @@ pipeline {
         }
           stage('Test') {
             steps {
-               sh 'mvn test'
+                dir('back'){
+               sh 'mvn test'}
             }
           }
           stage('MVN COMPILE') {
                       steps {
-                         sh 'mvn compile'
+                      dir('back'){
+
+                         sh 'mvn compile'}
                      }
                   }
         /*stage('Frontend') {
@@ -51,14 +54,19 @@ pipeline {
             }
         }*/
 
-        /*stage('SonarQube') {
-            steps {
-                // Étape d'analyse de qualité du code avec SonarQube
-                // Utilisez la configuration SonarQube appropriée
+stage('SonarQube Analysis') {
+steps {
+dir('back') {
+withSonarQubeEnv('sonarserver') {
+sh 'mvn sonar sonar- Dsonar.java.binaries=target/classes'
+}
+
+                   
+               }
             }
         }
 
-        stage('Docker Image') {
+    /*    stage('Docker Image') {
             steps {
                 // Étape de création d'images Docker pour le backend et le frontend
                 // Utilisez les Dockerfiles appropriés
