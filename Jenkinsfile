@@ -5,7 +5,7 @@ pipeline {
 
         stage('Git Checkout') {
             steps {
-                url: 'https://github.com/amaltrabelsi/DEVOPS'
+                git url: 'https://github.com/amaltrabelsi/DEVOPS'
              }
         }
 
