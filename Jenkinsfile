@@ -63,7 +63,7 @@ pipeline {
 stage('SonarQube Analysis') {
 steps {
 dir('back') {
-withSonarQubeEnv('sonarserver') {
+withSonarQubeEnv('sonar') {
 sh 'mvn sonar sonar- Dsonar.java.binaries=target/classes'
 }
 
