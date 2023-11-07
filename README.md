@@ -1,3 +1,4 @@
 # DEVOPS
 
-okk
+Back : application springboot
+Front : application angular
