@@ -28,7 +28,7 @@ pipeline {
           stage('Test') {
             steps {
                 dir('back'){
-               sh './mvn test'}
+               sh 'mvn test'}
             }
           }
           stage('MVN COMPILE') {
