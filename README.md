@@ -1,4 +1,4 @@
 # DEVOPS
 
-Back : application springboot ||
+Back : application springboot |
 Front : application angular
