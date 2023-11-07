@@ -66,19 +66,15 @@ pipeline {
         sh 'mvn compile'
     }
 }
-stage('SonarQube analysis') {
-    tools {
-        jdk "jdk17" // the name you have given the JDK installation using the JDK manager (Global Tool Configuration)
-    }
-    environment {
-        scannerHome = tool 'SonarQube Scanner' // the name you have given the Sonar Scanner (Global Tool Configuration)
-    }
-    steps {
-           dir('back'){
-        withSonarQubeEnv(installationName: 'SonarQube') {
-            sh 'mvn sonar:sonar'}
-        }
-    }
+
+stage('sonarqube') {
+           steps {
+                dir('back'){
+           withSonarQubeEnv('sonarserver') {
+                                      sh 'mvn sonar:sonar -Dsonar.java.binaries=target/classes'}
+           }
+           }
+       }
     /*    stage('Docker Image') {
             steps {
                 // Étape de création d'images Docker pour le backend et le frontend
