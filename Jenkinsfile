@@ -101,14 +101,15 @@ pipeline {
             steps {
                 archiveArtifacts artifacts: 'dist/*', allowEmptyArchive: true
             }}
-        }
-    }
+        
+    
 
     post {
         success {
             echo 'Build and archiving successful!'
         }
     }
+        }
        
         //
       // stage('Déploiement') {
