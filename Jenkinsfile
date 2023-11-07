@@ -38,6 +38,9 @@ pipeline {
            }
            }
        }
+        stage ('Email Notification') {
+            
+        }
         //
       // stage('Déploiement') {
       //       steps {
