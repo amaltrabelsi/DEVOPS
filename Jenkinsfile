@@ -13,7 +13,7 @@ pipeline {
          // stage('Backend') {
              //steps {
                 // Étape de compilation du backend
-               //  sh 'mvn clean package'
+               //  sh './mvn clean package'
               //}
           //}
          stage('Backend Compilation and Package') {
@@ -28,7 +28,7 @@ pipeline {
           stage('Test') {
             steps {
                 dir('back'){
-               sh 'mvn test'}
+               sh './mvn test'}
             }
           }
           stage('MVN COMPILE') {
