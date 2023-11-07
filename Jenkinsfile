@@ -10,7 +10,6 @@ pipeline {
         stage('git') {
             steps {
                 dir('back'){
-                // Cloner le référentiel depuis votre système de contrôle de version
                   git branch: 'main', url : 'https://github.com/amaltrabelsi/DEVOPS.git'}
                   }
         }
