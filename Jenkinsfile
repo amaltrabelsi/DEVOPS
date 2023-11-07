@@ -61,9 +61,9 @@ pipeline {
            }
        }
         stage('Nexus') {
-                            dir('back'){
-
+                           
             steps {
+                 dir('back'){
               sh 'mvn deploy'
             }
                
