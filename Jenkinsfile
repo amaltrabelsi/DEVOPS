@@ -67,8 +67,8 @@ pipeline {
 dir('back') {
     sh "mvn sonar:sonar \
            -Dsonar.projectKey=DevOps_Project  \
-           -Dsonar.host.url=http://192.168.33.10:9000\
-           -Dsonar.login=sqa_d5029b69cf0ceef39d5a946d5cbcdb0319e7cd79"
+           -Dsonar.host.url=http://172.17.0.1:9000/
+           -Dsonar.login=sqa_a4d782d0e0c27e3cbeed441e96ae6769568db0d0"
 }
 
     }
