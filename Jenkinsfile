@@ -83,29 +83,7 @@ pipeline {
            
         }
       
-        stage('Install Node.js and npm') {
-            
-            steps {
-                  dir('front'){
-                script {
-                    def nodeVersion = '14.17.3'  // Specify the Node.js version you want to install
-                    def toolName = "NodeJS_${nodeVersion}"
-
-                    // Check if the Node.js tool is already installed
-                    def tool = tool name: toolName, type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
-                    if (tool == null) {
-                        echo "Installing Node.js ${nodeVersion}"
-                        tool = tool name: toolName, type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation', properties: [[$class: 'InstallSourceProperty', installers: [[ $class: 'NodeJSInstaller', id: "${toolName}", installables: [[command: "${nodeVersion}"]]]]]]
-                    }
-
-                    // Set the Node.js installation as the default
-                    def nodejs = tool('NodeJS')
-                    env.PATH = "${nodejs}/bin:${env.PATH}"
-                    echo "Using Node.js version: ${nodejs}"
-                }
-                  }
-            }
-        }
+     
         
         stage('Install Dependencies') {
             steps {
