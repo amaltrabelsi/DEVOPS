@@ -23,8 +23,9 @@ pipeline {
         }
         stage('Tests') {
             steps {
+                  dir('back'){
                 // Exécuter vos tests unitaires ou tests d'intégration
-                sh 'mvn test'
+                sh 'mvn test'}
             }
         }
        stage('sonarqube') {
@@ -38,8 +39,9 @@ pipeline {
         //
       // stage('Déploiement') {
       //       steps {
+          dir('back'){
       //           // Déployer votre application sur un serveur ou une plateforme spécifique
-      //           sh 'mvn deploy'
+      //           sh 'mvn deploy' }
       //       }
       //   }
     }
