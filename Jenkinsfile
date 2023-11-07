@@ -74,7 +74,7 @@ pipeline {
             steps {
                   dir('back'){
                 script{
-                    sh 'docker build -t devops '
+                    sh 'docker build -t devops . '
                     sh'docker tag devops amal/devops'
 
                 }}
