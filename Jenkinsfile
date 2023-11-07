@@ -29,7 +29,32 @@ pipeline {
                 // Exécuter vos tests unitaires ou tests d'intégration
                 sh 'mvn test'}
             }
+             post {
+        failure {
+            script {
+                emailext(
+                    subject: "Pipeline Failed: ${currentBuild.fullDisplayName}",
+                    body: "The pipeline has failed. Please check the console output for details.",
+                    to: 'your_email@example.com',
+                    attachLog: true,
+                )
+            }
         }
+        
+        success {
+            script {
+                emailext(
+                    subject: "Pipeline Succeeded: ${currentBuild.fullDisplayName}",
+                    body: "The pipeline has succeeded. You can view the results at ${BUILD_URL}",
+                    to: 'your_email@example.com',
+                    attachLog: true,
+                )
+            }
+        }
+    }
+}
+
+        
        stage('sonarqube') {
            steps {
                dir('back'){
@@ -38,9 +63,7 @@ pipeline {
            }
            }
        }
-        stage ('Email Notification') {
-            
-        }
+       
         //
       // stage('Déploiement') {
       //       steps {
