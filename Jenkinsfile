@@ -106,6 +106,7 @@ pipeline {
                   }
             }
         }
+        }
         stage('Install Dependencies') {
             steps {
                  dir('front'){
