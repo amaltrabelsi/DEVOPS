@@ -62,18 +62,23 @@ pipeline {
 
 
         
-        stage ('SonarQube'){
-    steps {
-dir('back') {
-    sh "mvn sonar:sonar \
-           -Dsonar.projectKey=DevOps_Project  \
-           -Dsonar.host.url=http://172.17.0.1:9000/
-           -Dsonar.login=sqa_a4d782d0e0c27e3cbeed441e96ae6769568db0d0"
-}
-
+        steps {
+        sh 'mvn compile'
     }
 }
-
+stage('SonarQube analysis') {
+    tools {
+        jdk "jdk17" // the name you have given the JDK installation using the JDK manager (Global Tool Configuration)
+    }
+    environment {
+        scannerHome = tool 'SonarQube Scanner' // the name you have given the Sonar Scanner (Global Tool Configuration)
+    }
+    steps {
+           dir('back'){
+        withSonarQubeEnv(installationName: 'SonarQube') {
+            sh 'mvn sonar:sonar'}
+        }
+    }
     /*    stage('Docker Image') {
             steps {
                 // Étape de création d'images Docker pour le backend et le frontend
