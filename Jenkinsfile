@@ -33,7 +33,7 @@ pipeline {
                 emailext(
                     subject: "Pipeline Failed: ${currentBuild.fullDisplayName}",
                     body: "The pipeline has failed. Please check the console output for details.",
-                    to: 'your_email@example.com',
+                    to: 'azer1.guesmi@gmail.com',
                     attachLog: true,
                 )
             }
@@ -44,7 +44,7 @@ pipeline {
                 emailext(
                     subject: "Pipeline Succeeded: ${currentBuild.fullDisplayName}",
                     body: "The pipeline has succeeded. You can view the results at ${BUILD_URL}",
-                    to: 'your_email@example.com',
+                    to: 'azer1.guesmi@gmail.com',
                     attachLog: true,
                 )
             }
