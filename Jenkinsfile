@@ -13,7 +13,7 @@ pipeline {
                   git branch: 'main', url : 'https://github.com/amaltrabelsi/DEVOPS.git'}
                   }
         }
-        stage('Construction') {
+      /*  stage('Construction') {
             steps {
                 dir('back'){
                 // Exécuter votre processus de construction (par exemple, Maven, Gradle, etc.)
@@ -69,7 +69,7 @@ pipeline {
                
             }
                
-            }
+            }*/
         stage("docker image"){
             steps {
                   dir('back'){
