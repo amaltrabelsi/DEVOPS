@@ -39,7 +39,7 @@ pipeline {
         //
       // stage('Déploiement') {
       //       steps {
-          dir('back'){
+      //    dir('back'){
       //           // Déployer votre application sur un serveur ou une plateforme spécifique
       //           sh 'mvn deploy' }
       //       }
