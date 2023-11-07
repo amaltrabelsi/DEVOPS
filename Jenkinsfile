@@ -90,15 +90,17 @@ pipeline {
         }
 
         stage('Build Angular App') {
-                 dir('front'){
+                 
             steps {
+                dir('front'){
                 sh 'npm run build'}
             }
         }
 
         stage('Archive Artifacts') {
-                 dir('front'){
+               
             steps {
+                  dir('front'){
                 archiveArtifacts artifacts: 'dist/*', allowEmptyArchive: true
             }}
         
