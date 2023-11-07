@@ -60,17 +60,19 @@ pipeline {
             }
         }*/
 
-stage('SonarQube Analysis') {
-steps {
+
+        
+        stage ('SonarQube'){
+    steps {
 dir('back') {
-withSonarQubeEnv('sonarserver') {
-sh 'mvn sonar sonar- Dsonar.java.binaries=target/classes'
+    sh "mvn sonar:sonar \
+           -Dsonar.projectKey=DevOps_Project  \
+           -Dsonar.host.url=http://192.168.33.10:9000\
+           -Dsonar.login=sqa_d5029b69cf0ceef39d5a946d5cbcdb0319e7cd79"
 }
 
-                   
-               }
-            }
-        }
+    }
+}
 
     /*    stage('Docker Image') {
             steps {
