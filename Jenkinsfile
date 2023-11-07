@@ -82,7 +82,7 @@ pipeline {
             }
            
         }
-        stages {
+      
         stage('Install Node.js and npm') {
             
             steps {
@@ -106,7 +106,7 @@ pipeline {
                   }
             }
         }
-        }
+        
         stage('Install Dependencies') {
             steps {
                  dir('front'){
