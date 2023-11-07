@@ -82,6 +82,33 @@ pipeline {
             }
            
         }
+        stage('Install Dependencies') {
+            steps {
+                 dir('front'){
+                sh 'npm install'}
+            }
+        }
+
+        stage('Build Angular App') {
+                 dir('front'){
+            steps {
+                sh 'npm run build'}
+            }
+        }
+
+        stage('Archive Artifacts') {
+                 dir('front'){
+            steps {
+                archiveArtifacts artifacts: 'dist/*', allowEmptyArchive: true
+            }}
+        }
+    }
+
+    post {
+        success {
+            echo 'Build and archiving successful!'
+        }
+    }
        
         //
       // stage('Déploiement') {
