@@ -95,6 +95,8 @@ pipeline {
     
             steps {
                 dir('front'){
+                   sh' npm install @angular-devkit/build-angular'
+
                    
                         sh 'npm run build'}
             }
