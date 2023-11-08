@@ -95,6 +95,9 @@ pipeline {
     
             steps {
                 dir('front'){
+                   sh ' rm -rf node_modules'
+                    sh 'npm install'
+                    
                    sh' npm install @angular-devkit/build-angular --force'
 
                    
