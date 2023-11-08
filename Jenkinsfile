@@ -91,9 +91,7 @@ pipeline {
 
 
         stage('Build Angular App') {
-                   environment {
-        PATH = "/usr/bin/nodejs:/usr/bin/npm/:$PATH"
-    }
+    
             steps {
                 dir('front'){
                    sh 'npm install'
