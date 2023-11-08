@@ -93,7 +93,7 @@ pipeline {
     }
             steps {
                 dir('front'){
-                sh 'ng build'}
+                sh 'npm run ng build'}
             }
         }
 
