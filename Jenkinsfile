@@ -1,5 +1,8 @@
 pipeline {
     agent any
+       tools{
+        nodejs "npm"
+    }
     stages {
         
         stage('checkout'){
@@ -93,7 +96,8 @@ pipeline {
     }
             steps {
                 dir('front'){
-                sh 'npm run ng build'}
+                   sh 'npm install'
+                        sh 'npm run ng build'}
             }
         }
 
