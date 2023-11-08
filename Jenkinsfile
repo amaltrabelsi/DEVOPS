@@ -17,7 +17,7 @@ pipeline {
                   git branch: 'main', url : 'https://github.com/amaltrabelsi/DEVOPS.git'}
                   }
         }
-      /*  stage('Construction') {
+       stage('Construction') {
             steps {
                 dir('back'){
                 // Exécuter votre processus de construction (par exemple, Maven, Gradle, etc.)
@@ -36,7 +36,7 @@ pipeline {
                 emailext(
                     subject: "Pipeline Failed: ${currentBuild.fullDisplayName}",
                     body: "The pipeline has failed. Please check the console output for details.",
-                    to: 'azer1.guesmi@gmail.com',
+                    to: 'amaltr21@gmail.com',
                     attachLog: true,
                 )
             }
@@ -47,7 +47,7 @@ pipeline {
                 emailext(
                     subject: "Pipeline Succeeded: ${currentBuild.fullDisplayName}",
                     body: "The pipeline has succeeded. You can view the results at ${BUILD_URL}",
-                    to: 'azer1.guesmi@gmail.com',
+                    to: 'amaltr21@gmail.com',
                     attachLog: true,
                 )
             }
@@ -73,8 +73,8 @@ pipeline {
                
             }
                
-            }*/
-     /*   stage("docker image"){
+            }
+     stage("docker image back "){
             steps {
                   dir('back'){
                 script{
@@ -85,13 +85,25 @@ pipeline {
                
             }
            
-        }*/
+        }
+            stage("docker image front "){
+            steps {
+                  dir('front'){
+                script{
+                    sh 'docker build -t devopsfront . '
+                    sh'docker tag devops amal/devops'
+
+                }}
+               
+            }
+           
+        }
       
      
         
 
 
-        stage('Build Angular App') {
+       /* stage('Build Angular App') {
     
             steps {
                 dir('front'){
@@ -119,7 +131,7 @@ pipeline {
             echo 'Build and archiving successful!'
         }
     }
-        }
+        }*/
        
         //
       // stage('Déploiement') {
