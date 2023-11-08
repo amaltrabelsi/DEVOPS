@@ -92,8 +92,6 @@ pipeline {
     }
             steps {
                  dir('front'){
-                   
-sh 'sudo apt install npm'
                 sh 'npm install'}
             }
         }
